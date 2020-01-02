@@ -4,6 +4,9 @@ const hbs=require('hbs')
 const geocode=require('./src/utils/geocode')
 const forcast=require('./src/utils/forcast')
 
+//For heroku port process.env.PORT and for local host is 3000
+const port=process.env.PORT || 3000;
+
 const app=express();
 const publicDirectory=path.join(__dirname, '/public')
 const partialPath=path.join(__dirname, '/views/partials')
@@ -69,6 +72,6 @@ app.get('', (req,res)=>{
 
 
 
-app.listen(3000, ()=>{
-    console.log("Server has started at port 3000")
+app.listen(port, ()=>{
+    console.log("Server has started at port " + port)
 })
